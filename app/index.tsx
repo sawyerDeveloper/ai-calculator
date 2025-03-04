@@ -23,10 +23,17 @@ export default function Index() {
 
   const addCommand = (command: string) => {
     switch (command) {
-      case 'Clear':
+      case 'AC':
         setCurrentCommand([0]);
         break;
-
+      case 'C':
+        currentCommand.splice(currentCommand.length - 1, 1);
+        if (currentCommand.length < 1 && currentCommand[0] !== 0) {
+          setCurrentCommand([0]);
+        } else {
+          setCurrentCommand([...currentCommand]);
+        }
+        break;
       default:
         currentCommand.push(command);
         setCurrentCommand([...currentCommand]);
@@ -83,12 +90,7 @@ export default function Index() {
           <View style={styles.row}>
             <CalcButton label='.' value={0.1} action={pressCalcButton} />
             <CalcButton label='0' value={0} action={pressCalcButton} />
-            <CalcButton
-              label='Clear'
-              value={'Clear'}
-              action={pressCalcButton}
-              backgroundColor='grey'
-            />
+            <CalcButton label='-/+' value={'-/+'} action={pressCalcButton} />
             <CalcButton
               label='/'
               value={'/'}
@@ -99,19 +101,31 @@ export default function Index() {
         </View>
       </View>
       <View style={styles.row}>
-      <CalcButton
-        label='-/+'
-        value={'-/+'}
-        action={pressCalcButton}
-        backgroundColor={'orange'}
+        <CalcButton
+          label='C'
+          value={'C'}
+          action={pressCalcButton}
+          backgroundColor='orange'
         />
-      <CalcButton
-        label='='
-        value={'='}
-        action={pressCalcButton}
-        backgroundColor={'green'}
+        <CalcButton
+          label='AC'
+          value={'AC'}
+          action={pressCalcButton}
+          backgroundColor={'red'}
         />
-        </View>
+        <CalcButton
+          label='sqrt'
+          value={'sqrt'}
+          action={pressCalcButton}
+          backgroundColor={'lightblue'}
+        />
+        <CalcButton
+          label='='
+          value={'='}
+          action={pressCalcButton}
+          backgroundColor={'green'}
+        />
+      </View>
     </View>
   );
 }
