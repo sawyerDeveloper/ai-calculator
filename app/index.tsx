@@ -27,12 +27,23 @@ export default function Index() {
         setCurrentCommand([0]);
         break;
       case 'C':
+        //  Just remove the last digit or command
         currentCommand.splice(currentCommand.length - 1, 1);
+
+        //  If its the last digit, set currentCommand zero, otherwise set it to the new shorter array
         if (currentCommand.length < 1 && currentCommand[0] !== 0) {
           setCurrentCommand([0]);
         } else {
           setCurrentCommand([...currentCommand]);
         }
+        break;
+        case '-/+' :
+          if(currentCommand[0] === '-'){
+            currentCommand.shift()
+          }else{
+            currentCommand.unshift('-')
+          }
+          setCurrentCommand([...currentCommand]);
         break;
       default:
         currentCommand.push(command);
