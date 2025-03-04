@@ -14,12 +14,11 @@ export function AiThinker({ show }: AiThinkerProps) {
 
 const styles = StyleSheet.create({
   container: {
-    height: 30,
-    backgroundColor: 'white',
-    borderColor: 'black',
-    borderWidth: 1,
-    justifyContent: 'center',
-    fontSize: 30,
-    paddingLeft: 10,
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    width: '100%',
+    height: '100%',
+    pointerEvents: 'none'
   },
 });
