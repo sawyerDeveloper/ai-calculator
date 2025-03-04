@@ -3,8 +3,10 @@ import { CalcScreen } from '@/components/CalcScreen';
 import { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import AIModel from '../ai/ai.Model';
+import { AiThinker } from '@/components/AiThinker';
 export default function Index() {
   const [currentCommand, setCurrentCommand] = useState<[string | number]>([0]);
+  const [loading, setLoading] = useState(false)
   const [aiModel] = useState(new AIModel());
 
   const addDigit = (digit: number) => {
@@ -25,6 +27,7 @@ export default function Index() {
   const addCommand = (command: string) => {
     switch (command) {
       case '=':
+        setLoading(true)
         currentCommand.push(command);
         const result = aiModel.compute(currentCommand)
         currentCommand.push(result);
@@ -147,6 +150,7 @@ export default function Index() {
           backgroundColor={'green'}
         />
       </View>
+      <AiThinker show={loading}/>
     </View>
   );
 }
