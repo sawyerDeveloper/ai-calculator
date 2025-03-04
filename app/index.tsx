@@ -1,4 +1,5 @@
 import { CalcButton } from '@/components/CalcButton';
+import { CalcScreen } from '@/components/CalcScreen';
 import { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
@@ -45,9 +46,7 @@ export default function Index() {
       <View>
         <Text>Calculator</Text>
         <View>
-          <View style={styles.answer}>
-            <Text>{currentCommand}</Text>
-          </View>
+          <CalcScreen value={currentCommand} />
           <View style={styles.column}>
             <View style={styles.row}>
               <CalcButton label='1' value={1} action={pressCalcButton} />
@@ -118,14 +117,5 @@ const styles = StyleSheet.create({
   },
   column: {
     flexDirection: 'column',
-  },
-  answer: {
-    height: 30,
-    backgroundColor: 'white',
-    borderColor: 'black',
-    borderWidth: 1,
-    justifyContent: 'center',
-    fontSize: 30,
-    paddingLeft: 10,
   },
 });
