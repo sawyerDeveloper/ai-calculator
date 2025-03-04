@@ -37,17 +37,20 @@ export default function Index() {
           setCurrentCommand([...currentCommand]);
         }
         break;
-        case '-/+' :
-          if(currentCommand[0] === '-'){
-            currentCommand.shift()
-          }else{
-            currentCommand.unshift('-')
-          }
-          setCurrentCommand([...currentCommand]);
+      case '-/+':
+        if (currentCommand[0] === '-') {
+          currentCommand.shift();
+        } else {
+          currentCommand.unshift('-');
+        }
+        setCurrentCommand([...currentCommand]);
         break;
       default:
-        currentCommand.push(command);
-        setCurrentCommand([...currentCommand]);
+        //  Only 1 command between digits
+        if (!isNaN(currentCommand[currentCommand.length - 1] as number)) {
+          currentCommand.push(command);
+          setCurrentCommand([...currentCommand]);
+        }
     }
   };
 
@@ -143,7 +146,7 @@ export default function Index() {
 
 const styles = StyleSheet.create({
   container: {
-    fontFamily: 'Roboto-Medium',
+    fontFamily: 'Roboto',
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
