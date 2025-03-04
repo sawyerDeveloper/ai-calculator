@@ -2,9 +2,10 @@ import { CalcButton } from '@/components/CalcButton';
 import { CalcScreen } from '@/components/CalcScreen';
 import { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
+import AIModel from '../ai/ai.Model';
 export default function Index() {
   const [currentCommand, setCurrentCommand] = useState<[string | number]>([0]);
+  const [aiModel] = useState(new AIModel());
 
   const addDigit = (digit: number) => {
     //  Don't add zeros
@@ -23,6 +24,12 @@ export default function Index() {
 
   const addCommand = (command: string) => {
     switch (command) {
+      case '=':
+        currentCommand.push(command);
+        const result = aiModel.compute(currentCommand)
+        currentCommand.push(result);
+        setCurrentCommand([...currentCommand]);
+        break;
       case 'AC':
         setCurrentCommand([0]);
         break;
