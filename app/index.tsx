@@ -26,10 +26,10 @@ export default function Index() {
       case 'Clear':
         setCurrentCommand([0]);
         break;
-      case '+':
-        setCurrentCommand(currentCommand);
+
       default:
-        setCurrentCommand(currentCommand);
+        currentCommand.push(command);
+        setCurrentCommand([...currentCommand]);
     }
   };
 
@@ -43,63 +43,75 @@ export default function Index() {
 
   return (
     <View style={styles.container}>
+      <Text>Calculator</Text>
       <View>
-        <Text>Calculator</Text>
-        <View>
-          <CalcScreen value={currentCommand} />
-          <View style={styles.column}>
-            <View style={styles.row}>
-              <CalcButton label='1' value={1} action={pressCalcButton} />
-              <CalcButton label='2' value={2} action={pressCalcButton} />
-              <CalcButton label='3' value={3} action={pressCalcButton} />
-              <CalcButton
-                label='+'
-                value={'+'}
-                action={pressCalcButton}
-                backgroundColor='lightgrey'
-              />
-            </View>
-            <View style={styles.row}>
-              <CalcButton label='4' value={4} action={pressCalcButton} />
-              <CalcButton label='5' value={5} action={pressCalcButton} />
-              <CalcButton label='6' value={6} action={pressCalcButton} />
-              <CalcButton
-                label='-'
-                value={'-'}
-                action={pressCalcButton}
-                backgroundColor='lightgrey'
-              />
-            </View>
-            <View style={styles.row}>
-              <CalcButton label='7' value={7} action={pressCalcButton} />
-              <CalcButton label='8' value={8} action={pressCalcButton} />
-              <CalcButton label='9' value={9} action={pressCalcButton} />
-              <CalcButton
-                label='x'
-                value={'x'}
-                action={pressCalcButton}
-                backgroundColor='lightgrey'
-              />
-            </View>
-            <View style={styles.row}>
-              <CalcButton label='.' value={0.1} action={pressCalcButton} />
-              <CalcButton label='0' value={0} action={pressCalcButton} />
-              <CalcButton
-                label='Clear'
-                value={'Clear'}
-                action={pressCalcButton}
-                backgroundColor='grey'
-              />
-              <CalcButton
-                label='/'
-                value={'/'}
-                action={pressCalcButton}
-                backgroundColor='lightgrey'
-              />
-            </View>
+        <CalcScreen value={currentCommand} />
+        <View style={styles.column}>
+          <View style={styles.row}>
+            <CalcButton label='1' value={1} action={pressCalcButton} />
+            <CalcButton label='2' value={2} action={pressCalcButton} />
+            <CalcButton label='3' value={3} action={pressCalcButton} />
+            <CalcButton
+              label='+'
+              value={'+'}
+              action={pressCalcButton}
+              backgroundColor='lightgrey'
+            />
+          </View>
+          <View style={styles.row}>
+            <CalcButton label='4' value={4} action={pressCalcButton} />
+            <CalcButton label='5' value={5} action={pressCalcButton} />
+            <CalcButton label='6' value={6} action={pressCalcButton} />
+            <CalcButton
+              label='-'
+              value={'-'}
+              action={pressCalcButton}
+              backgroundColor='lightgrey'
+            />
+          </View>
+          <View style={styles.row}>
+            <CalcButton label='7' value={7} action={pressCalcButton} />
+            <CalcButton label='8' value={8} action={pressCalcButton} />
+            <CalcButton label='9' value={9} action={pressCalcButton} />
+            <CalcButton
+              label='x'
+              value={'x'}
+              action={pressCalcButton}
+              backgroundColor='lightgrey'
+            />
+          </View>
+          <View style={styles.row}>
+            <CalcButton label='.' value={0.1} action={pressCalcButton} />
+            <CalcButton label='0' value={0} action={pressCalcButton} />
+            <CalcButton
+              label='Clear'
+              value={'Clear'}
+              action={pressCalcButton}
+              backgroundColor='grey'
+            />
+            <CalcButton
+              label='/'
+              value={'/'}
+              action={pressCalcButton}
+              backgroundColor='lightgrey'
+            />
           </View>
         </View>
       </View>
+      <View style={styles.row}>
+      <CalcButton
+        label='-/+'
+        value={'-/+'}
+        action={pressCalcButton}
+        backgroundColor={'orange'}
+        />
+      <CalcButton
+        label='='
+        value={'='}
+        action={pressCalcButton}
+        backgroundColor={'green'}
+        />
+        </View>
     </View>
   );
 }
