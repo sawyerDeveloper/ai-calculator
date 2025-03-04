@@ -18,5 +18,7 @@ This app has AI inside of it instead of boring math/logic.
 3. Choose the platform
 
    Press w for web
+   
    Press i for ios
+   
    press a for android
