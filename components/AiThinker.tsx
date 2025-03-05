@@ -1,13 +1,34 @@
 import { StyleSheet, View } from 'react-native';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withSequence,
+  withSpring,
+} from 'react-native-reanimated';
+import { useEffect } from 'react';
 
-interface AiThinkerProps {
-  show: boolean;
+interface AiThinkProps {
+  aiModel: [number | string];
+  aiCallback: () => void;
 }
-export function AiThinker({ show }: AiThinkerProps) {
+export function AiThinker({ aiModel, aiCallback }: AiThinkProps) {
+  const left = useSharedValue(0);
+  const animStyle = useAnimatedStyle(() => ({
+    transform: [{ translateX: left.value }],
+  }));
+
+  useEffect(() => {
+    left.value = withSequence(
+      withSpring(left.value + aiModel.length * 8, {}, aiCallback)
+    );
+  }, []);
+
   return (
     <View style={styles.container}>
-      {show && <FontAwesome5 name='brain' size={24} color='black' />}
+      <Animated.View style={[styles.brain, animStyle]}>
+        <FontAwesome5 name='brain' size={24} color='black' />
+      </Animated.View>
     </View>
   );
 }
@@ -17,8 +38,9 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 0,
     top: 0,
-    width: '100%',
     height: '100%',
-    pointerEvents: 'none'
+  },
+  brain: {
+    opacity: 0.7,
   },
 });
