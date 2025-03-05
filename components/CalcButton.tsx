@@ -20,7 +20,7 @@ export function CalcButton({
   return (
     <Pressable
       onPress={() => action(value)}
-      style={[styles.container, { backgroundColor: backgroundColor }]}
+      style={[styles.container, { backgroundColor }]}
     >
       <Text>{label}</Text>
     </Pressable>
