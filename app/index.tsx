@@ -6,7 +6,7 @@ import AIModel from '../ai/ai.Model';
 import { AiThinker } from '@/components/AiThinker';
 export default function Index() {
   const [currentCommand, setCurrentCommand] = useState<[string | number]>([0]);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const [aiModel] = useState(new AIModel());
 
   const addDigit = (digit: number) => {
@@ -27,9 +27,9 @@ export default function Index() {
   const addCommand = (command: string) => {
     switch (command) {
       case '=':
-        setLoading(true)
+        setLoading(true);
         currentCommand.push(command);
-        const result = aiModel.compute(currentCommand)
+        const result = aiModel.compute(currentCommand);
         currentCommand.push(result);
         setCurrentCommand([...currentCommand]);
         break;
@@ -76,7 +76,7 @@ export default function Index() {
     <View style={styles.container}>
       <Text>Calculator</Text>
       <View>
-        <CalcScreen value={currentCommand} />
+        <CalcScreen loading={loading} value={currentCommand} />
         <View style={styles.column}>
           <View style={styles.row}>
             <CalcButton label='1' value={1} action={pressCalcButton} />
@@ -150,7 +150,6 @@ export default function Index() {
           backgroundColor={'green'}
         />
       </View>
-      <AiThinker show={loading}/>
     </View>
   );
 }
