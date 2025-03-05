@@ -1,6 +1,9 @@
 import { StyleSheet, View } from 'react-native';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import Animated, {
+    FadeIn,
+  FadeOut,
+  runOnJS,
   useAnimatedStyle,
   useSharedValue,
   withSequence,
@@ -19,9 +22,10 @@ export function AiThinker({ aiModel, aiCallback }: AiThinkProps) {
   }));
 
   useEffect(() => {
-    left.value = withSequence(
-      withSpring(left.value + aiModel.length * 8, {}, aiCallback)
-    );
+    left.value =
+      withSpring(left.value + aiModel.length * 8, {}, () => {
+      runOnJS(aiCallback)()
+      });
   }, []);
 
   return (
@@ -41,6 +45,6 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   brain: {
-    opacity: 0.7,
+    
   },
 });
