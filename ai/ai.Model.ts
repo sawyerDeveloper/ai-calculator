@@ -8,7 +8,6 @@ export default class AIModel implements IAIModel {
   }
 
   public compute(data: [string | number]) {
-    console.log('compute',data)
     this.data = data;
     this.delegateTo03();
     return this.aiResponse;
@@ -22,7 +21,6 @@ export default class AIModel implements IAIModel {
           return acc + parseInt(current);
         }, 0);
       case 'sqrt':
-        console.log(numbers[0], Math.sqrt(parseInt(numbers[0])))
         return Math.sqrt(parseInt(numbers[0]));
       default:
         return 0;
@@ -35,7 +33,6 @@ export default class AIModel implements IAIModel {
     let num = '';
     for (var i = 0; i < this.data.length; i++) {
       const model = this.data[i];
-      console.log(model)
       if (!isNaN(model as number) || model === '.') {
         num += model;
       } else {

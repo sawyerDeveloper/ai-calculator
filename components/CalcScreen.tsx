@@ -8,7 +8,7 @@ interface CalcScreenProps {
 }
 
 export function CalcScreen({ value, loading }: CalcScreenProps) {
-  const [showAnswer, setShowAnswer] = useState(false);
+  const [showAnswer, setShowAnswer] = useState(loading);
   return (
     <View style={styles.container}>
       <Text>{value.map((digit) => digit)}</Text>

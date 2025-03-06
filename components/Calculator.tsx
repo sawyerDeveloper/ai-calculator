@@ -56,7 +56,6 @@ export function Calculator() {
       default:
         //  Only 1 command between digits
         if (!isNaN(currentCommand[currentCommand.length - 1] as number)) {
-            console.log(command)
           currentCommand.push(command);
           setCurrentCommand([...currentCommand]);
         }
