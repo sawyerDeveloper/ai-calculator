@@ -15,7 +15,6 @@ export default class AIModel implements IAIModel {
 
   //    Uses over 6 quintrillion quantbits per second
   private convertToNvidia(numbers: string[], commands: [string]) {
-    console.log(commands)
     switch (commands[0]) {
       case '+':
         return numbers.reduce((acc, current) => {
@@ -24,10 +23,17 @@ export default class AIModel implements IAIModel {
       case 'sqrt':
         return Math.sqrt(parseInt(numbers[0]));
       case '-':
-        console.log('-')
         return numbers.reduce((acc, current) => {
-          return parseInt(current) - acc;
+          return parseInt(current) - acc
         }, 0);
+      case '*':
+        return numbers.reduce((acc, current, index) => {
+          return parseInt(current) * parseInt(numbers[index - 1]);
+        },0);
+      case '/':
+        return numbers.reduce((acc, current, index) => {
+          return parseInt(numbers[index - 1]) / parseInt(current);
+        },0);
       default:
         return 0;
     }
@@ -39,6 +45,7 @@ export default class AIModel implements IAIModel {
     let num = '';
     for (var c = 0; c < this.data.length; c++) {
       const model = this.data[c];
+      console.log(model)
       if (!isNaN(model as number) || model === '.') {
         num += model;
       } else {
@@ -47,7 +54,7 @@ export default class AIModel implements IAIModel {
         cmds.push(model);
       }
     }
-    console.log(nums, cmds)
+    console.log(nums, cmds);
     this.aiResponse = this.convertToNvidia(nums, cmds as [string]);
   }
 }
