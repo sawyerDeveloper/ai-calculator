@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { useState } from 'react';
-import AIModel from '@/ai/ai.Model';
-import { CalcButton } from '@/components/CalcButton';
-import { CalcScreen } from '@/components/CalcScreen';
+import { CalcScreen } from './CalcScreen';
+import { CalcButton } from './CalcButton';
+import AIModel from '../ai/AIModel';
 
 export function Calculator() {
   const [currentCommand, setCurrentCommand] = useState<[string | number]>([0]);
@@ -24,6 +24,7 @@ export function Calculator() {
   };
 
   const addCommand = (command: string) => {
+    console.log(command);
     switch (command) {
       case '=':
         setLoading(true);
