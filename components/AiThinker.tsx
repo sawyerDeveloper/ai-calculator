@@ -12,6 +12,7 @@ interface AiThinkerProps {
   aiModel: [number | string];
   aiCallback: () => void;
 }
+
 export function AiThinker({ aiModel, aiCallback }: AiThinkerProps) {
   const left = useSharedValue(0);
   const animStyle = useAnimatedStyle(() => ({

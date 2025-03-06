@@ -1,6 +1,12 @@
 # AI Calculator 👋
 
-This app has AI inside of it instead of boring math/logic.
+This app has AI inside of it instead of using traditional math/logic.
+
+I created a data structure/algorithm based on the concept of a MODEM(Modulate/Demodulate).
+
+The complex data stream is stored and processed and then broken down into a simpler datatype after muxing like the foundational technology in LLM's and compilers.
+
+It is also fun to make a calculator and covers a bunch of use cases around Array methods.
 
 ## Get started
 
