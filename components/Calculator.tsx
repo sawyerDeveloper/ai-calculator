@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { CalcScreen } from './CalcScreen';
 import { CalcButton } from './CalcButton';
 import AIModel from '../ai/AIModel';
+import HybridWrapper from './containers/HybridWrapper';
 
 export function Calculator() {
   const [currentCommand, setCurrentCommand] = useState<[string | number]>([0]);
@@ -24,7 +25,6 @@ export function Calculator() {
   };
 
   const addCommand = (command: string) => {
-    console.log(command);
     switch (command) {
       case '=':
         setLoading(true);
@@ -72,6 +72,7 @@ export function Calculator() {
   };
 
   return (
+    <HybridWrapper>
     <View style={styles.container}>
       <Text>Calculator</Text>
       <View>
@@ -150,6 +151,7 @@ export function Calculator() {
         />
       </View>
     </View>
+    </HybridWrapper>
   );
 }
 
@@ -160,6 +162,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
+    width: '100%',
+    height :'100%'
   },
   row: {
     flexDirection: 'row',
