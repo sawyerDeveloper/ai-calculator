@@ -6,6 +6,7 @@ interface CalcScreenProps {
   value: [number | string];
   loading: boolean;
 }
+
 export function CalcScreen({ value, loading }: CalcScreenProps) {
   const [showAnswer, setShowAnswer] = useState(false);
   return (
