@@ -11,6 +11,7 @@ interface CalcButtonProps {
   action: (calcValue: number | string) => void;
   backgroundColor?: ColorValue;
 }
+
 export function CalcButton({
   value,
   label,
