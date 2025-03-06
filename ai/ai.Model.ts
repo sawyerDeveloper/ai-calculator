@@ -31,8 +31,8 @@ export default class AIModel implements IAIModel {
     const nums = [];
     const cmds = [];
     let num = '';
-    for (var i = 0; i < this.data.length; i++) {
-      const model = this.data[i];
+    for (var c = 0; c < this.data.length; c++) {
+      const model = this.data[c];
       if (!isNaN(model as number) || model === '.') {
         num += model;
       } else {
