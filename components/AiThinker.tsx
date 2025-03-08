@@ -20,7 +20,7 @@ export function AiThinker({ aiModel, aiCallback }: AiThinkerProps) {
   }));
 
   useEffect(() => {
-    left.value = withSpring(left.value + aiModel.length * 10, {}, () => {
+    left.value = withSpring(left.value + aiModel.length * 15 + 6, {}, () => {
       //  Specific to callbacks for RN Reanimated
       runOnJS(aiCallback)();
     });
