@@ -24,7 +24,9 @@ It is also fun to make a calculator and covers a bunch of use cases around Array
 3. Choose the platform
 
    Press w for web
+
+   Scan the QR code with your mobile device with Expo Go installed to see it live on device.
    
-   Press i for ios
+   Press i for ios simulator
    
-   press a for android
+   press a for android simulator
