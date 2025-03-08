@@ -11,7 +11,7 @@ export function CalcScreen({ value, loading }: CalcScreenProps) {
   const [showAnswer, setShowAnswer] = useState(loading);
   return (
     <View style={styles.container}>
-      <Text>{value.map((digit) => digit)}</Text>
+      <Text style={styles.label}>{value.map((digit) => digit)}</Text>
       {loading && !showAnswer && (
         <AiThinker aiCallback={() => setShowAnswer(true)} aiModel={value} />
       )}
@@ -21,12 +21,16 @@ export function CalcScreen({ value, loading }: CalcScreenProps) {
 
 const styles = StyleSheet.create({
   container: {
-    height: 30,
+    height: 60,
+    width: '100%',
     backgroundColor: 'white',
     borderColor: 'black',
     borderWidth: 1,
     justifyContent: 'center',
-    fontSize: 30,
     paddingLeft: 10,
   },
+  label: {
+    
+    fontSize: 30,
+  }
 });

@@ -20,7 +20,7 @@ export function AiThinker({ aiModel, aiCallback }: AiThinkerProps) {
   }));
 
   useEffect(() => {
-    left.value = withSpring(left.value + aiModel.length * 8, {}, () => {
+    left.value = withSpring(left.value + aiModel.length * 10, {}, () => {
       //  Specific to callbacks for RN Reanimated
       runOnJS(aiCallback)();
     });
@@ -29,7 +29,7 @@ export function AiThinker({ aiModel, aiCallback }: AiThinkerProps) {
   return (
     <View style={styles.container}>
       <Animated.View style={[styles.brain, animStyle]}>
-        <FontAwesome5 name='brain' size={24} color='black' />
+        <FontAwesome5 name='brain' size={54} color='black' />
       </Animated.View>
     </View>
   );
