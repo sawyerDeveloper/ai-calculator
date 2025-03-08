@@ -1,9 +1,7 @@
-import HybridWrapper from "@/components/containers/HybridWrapper";
-import { Calculator } from "../components/Calculator";
+import { Calculator } from '../components/Calculator';
 
 export default function Index() {
   return (
       <Calculator />
   );
 }
-

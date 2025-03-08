@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { CalcScreen } from './CalcScreen';
 import { CalcButton } from './CalcButton';
 import AIModel from '../ai/AIModel';
-import HybridWrapper from './containers/HybridWrapper';
 
 export function Calculator() {
   const [currentCommand, setCurrentCommand] = useState<[string | number]>([0]);
@@ -72,11 +71,10 @@ export function Calculator() {
   };
 
   return (
-    <HybridWrapper>
     <View style={styles.container}>
-      <Text>Calculator</Text>
-      <View>
-        <CalcScreen loading={loading} value={currentCommand} />
+      <Text style={styles.header}>Calculator</Text>
+      <CalcScreen loading={loading} value={currentCommand} />
+      <View style={styles.controls}>
         <View style={styles.column}>
           <View style={styles.row}>
             <CalcButton label='1' value={1} action={pressCalcButton} />
@@ -122,53 +120,69 @@ export function Calculator() {
               backgroundColor='lightgrey'
             />
           </View>
+          <View style={styles.row}>
+            <CalcButton
+              label='C'
+              value={'C'}
+              action={pressCalcButton}
+              backgroundColor='orange'
+            />
+            <CalcButton
+              label='AC'
+              value={'AC'}
+              action={pressCalcButton}
+              backgroundColor={'firebrick'}
+            />
+            <CalcButton
+              label='sqrt'
+              value={'sqrt'}
+              action={pressCalcButton}
+              backgroundColor={'lightgrey'}
+            />
+            <CalcButton
+              label='='
+              value={'='}
+              action={pressCalcButton}
+              backgroundColor={'green'}
+            />
+          </View>
         </View>
       </View>
-      <View style={styles.row}>
-        <CalcButton
-          label='C'
-          value={'C'}
-          action={pressCalcButton}
-          backgroundColor='orange'
-        />
-        <CalcButton
-          label='AC'
-          value={'AC'}
-          action={pressCalcButton}
-          backgroundColor={'red'}
-        />
-        <CalcButton
-          label='sqrt'
-          value={'sqrt'}
-          action={pressCalcButton}
-          backgroundColor={'lightblue'}
-        />
-        <CalcButton
-          label='='
-          value={'='}
-          action={pressCalcButton}
-          backgroundColor={'green'}
-        />
-      </View>
     </View>
-    </HybridWrapper>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    fontFamily: 'Roboto',
     flex: 1,
+    alignSelf:'center',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
     width: '100%',
-    height :'100%'
+    maxWidth: 500
+  },
+  header:{
+    fontSize: 40,
+    paddingBottom: 10,
+    fontWeight: '800'
+  },
+  controls: {
+    width: '100%',
+    height: '65%',
+    justifyContent: 'center',
+    alignSelf: 'center'
   },
   row: {
     flexDirection: 'row',
+    height: '20%',
+    width:'25%'
   },
   column: {
     flexDirection: 'column',
+    width: '100%',
+    height: '100%',
+    justifyContent: 'space-between',
+    alignSelf: 'center'
   },
 });

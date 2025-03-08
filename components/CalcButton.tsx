@@ -23,7 +23,7 @@ export function CalcButton({
       onPress={() => action(value)}
       style={[styles.container, { backgroundColor }]}
     >
-      <Text>{label}</Text>
+      <Text style={[styles.label, {fontSize: isNaN(value as number) ? 30 : 25}]}>{label}</Text>
     </Pressable>
   );
 }
@@ -32,10 +32,14 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: 50,
-    height: 50,
+    width: '100%',
+    height: '100%',
     borderColor: 'black',
     borderWidth: 1,
     cursor: 'pointer',
+    fontSize: 20
   },
+  label: {
+    fontWeight: '600' 
+  }
 });
