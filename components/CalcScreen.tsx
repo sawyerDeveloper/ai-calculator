@@ -25,12 +25,11 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: 'white',
     borderColor: 'black',
-    borderWidth: 1,
+    borderWidth: 1.5,
     justifyContent: 'center',
     paddingLeft: 10,
   },
   label: {
-    
     fontSize: 30,
-  }
+  },
 });

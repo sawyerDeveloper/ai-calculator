@@ -160,7 +160,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 20,
     width: '100%',
-    maxWidth: 500
+    maxWidth: 500,
+
   },
   header:{
     fontSize: 40,
@@ -171,7 +172,9 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '65%',
     justifyContent: 'center',
-    alignSelf: 'center'
+    alignSelf: 'center',
+    borderColor: 'black',
+    borderWidth: .5,
   },
   row: {
     flexDirection: 'row',
