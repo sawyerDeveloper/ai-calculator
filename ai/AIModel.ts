@@ -13,7 +13,7 @@ export default class AIModel implements IAIModel {
     return this.aiResponse;
   }
 
-  //    Uses over 6 quintrillion quantbits per second
+  //    Uses over 6 quintrillion quantbits/qubits per second
   private convertToNvidia(numbers: string[], commands: string[]) {
     switch (commands[0]) {
       case '+':
@@ -23,8 +23,8 @@ export default class AIModel implements IAIModel {
       case 'sqrt':
         return Math.sqrt(parseInt(numbers[0]));
       case '-':
-        return numbers.reduce((acc, current) => {
-          return parseInt(current) - acc
+        return numbers.reduce((acc, current, index) => {
+          return parseInt(current) - parseInt(numbers[index - 1]);
         }, 0);
       case '*':
         return numbers.reduce((acc, current, index) => {
