@@ -30,3 +30,10 @@ It is also fun to make a calculator and covers a bunch of use cases around Array
    Press i for ios simulator
    
    press a for android simulator
+
+## Run Tests
+
+   ```bash
+   npm watch
+   ```
+
