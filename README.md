@@ -1,6 +1,6 @@
 # AI Calculator 👋
 
-This is a calculator app.  It doesn't need AI so instead I just wrote code that looks like AI and operates like AI.
+This is a calculator app.  It doesn't need AI so instead I just wrote code that is AI.
  
 I created a data structure/algorithm based on the concept of a MODEM(Modulate/Demodulate).
 
