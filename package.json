@@ -8,7 +8,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "watch": "jest --watchAll",
-    "test": "jest",
+    "test": "jest --ci",
     "lint": "expo lint"
   },
   "jest": {
