@@ -72,7 +72,6 @@ export function Calculator() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Calculator</Text>
       <CalcScreen loading={loading} value={currentCommand} />
       <CalcControls pressCalcButton={pressCalcButton} />
     </View>
@@ -88,10 +87,5 @@ const styles = StyleSheet.create({
     padding: 20,
     width: '100%',
     maxWidth: 500,
-  },
-  header: {
-    fontSize: 40,
-    paddingBottom: 10,
-    fontWeight: '800',
-  },
+  }
 });
