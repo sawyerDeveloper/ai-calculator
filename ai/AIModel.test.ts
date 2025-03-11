@@ -24,9 +24,21 @@ describe('AI Model Compute', () => {
       expect(result).toBe(0);
     });
     test('with double complete set of commands and digits', () => {
-        const model = new AIModel();
-        const result = model.compute([2, '-', 1, '-', 1, '=']);
-        expect(result).toBe(0);
-      });
+      const model = new AIModel();
+      const result = model.compute([2, '-', 1, '-', 1, '=']);
+      expect(result).toBe(0);
+    });
+    test('with single set of complete commands and digits and larger integer subtracting a smaller integer', () => {
+      const model = new AIModel();
+      const result = model.compute([2, '-', 1, '=']);
+      expect(result).toBe(-1);
+    });
+  });
+  describe('Multiplication', () => {
+    test('with single complete set of commands and digits', () => {
+      const model = new AIModel();
+      const result = model.compute([1, '*', 1, '=']);
+      expect(result).toBe(1);
+    });
   });
 });
