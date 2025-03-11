@@ -9,7 +9,7 @@ import Animated, {
 import { useEffect } from 'react';
 
 interface AiThinkerProps {
-  aiModel: [number | string];
+  aiModel: (number | string)[];
   aiCallback: () => void;
 }
 
