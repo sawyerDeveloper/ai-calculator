@@ -23,8 +23,8 @@ export default class AIModel implements IAIModel {
       case 'sqrt':
         return Math.sqrt(parseInt(numbers[0]));
       case '-':
-        return numbers.reduce((acc, current) => {
-          return parseInt(current) - acc
+        return numbers.reduce((acc, current, index) => {
+          return parseInt(current) - parseInt(numbers[index - 1]);
         }, 0);
       case '*':
         return numbers.reduce((acc, current, index) => {
