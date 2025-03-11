@@ -1,3 +1,3 @@
 interface IAIModel {
-    compute : (data : [string |number]) => number;
+    compute : (data : (string | number)[]) => number;
 }

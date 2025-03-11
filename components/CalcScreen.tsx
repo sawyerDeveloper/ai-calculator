@@ -3,7 +3,7 @@ import { AiThinker } from './AiThinker';
 import { useState } from 'react';
 
 interface CalcScreenProps {
-  value: [number | string];
+  value: (number | string)[];
   loading: boolean;
 }
 

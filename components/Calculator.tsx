@@ -5,7 +5,7 @@ import AIModel from '../ai/AIModel';
 import CalcControls from './CalcControls';
 
 export function Calculator() {
-  const [currentCommand, setCurrentCommand] = useState<[string | number]>([0]);
+  const [currentCommand, setCurrentCommand] = useState<(string | number)[]>([0]);
   const [loading, setLoading] = useState(false);
   const [aiModel] = useState(new AIModel());
 

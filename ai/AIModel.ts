@@ -1,5 +1,5 @@
 export default class AIModel implements IAIModel {
-  data: [string | number];
+  data: (string | number)[];
   aiResponse: number;
 
   public constructor() {
@@ -7,14 +7,14 @@ export default class AIModel implements IAIModel {
     this.aiResponse = 0;
   }
 
-  public compute(data: [string | number]) {
+  public compute(data: (string | number)[]) {
     this.data = data;
     this.delegateTo03();
     return this.aiResponse;
   }
 
   //    Uses over 6 quintrillion quantbits per second
-  private convertToNvidia(numbers: string[], commands: [string]) {
+  private convertToNvidia(numbers: string[], commands: string[]) {
     switch (commands[0]) {
       case '+':
         return numbers.reduce((acc, current) => {
