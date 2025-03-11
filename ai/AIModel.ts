@@ -17,21 +17,22 @@ export default class AIModel implements IAIModel {
   private convertToNvidia(numbers: number[], commands: string[]) {
     let sum = 0;
     for (let i: number = 0; i < commands.length - 1; i++) {
+      let current = i === 0 ? numbers[i] : sum;
       switch (commands[i]) {
         case '+':
-          sum = i === 0 ? numbers[i] + numbers[i + 1] : sum + numbers[i];
-          break;
-        case 'sqrt':
-          sum = Math.sqrt(numbers[0]);
+          sum = current + numbers[i + 1];
           break;
         case '-':
-          sum = i === 0 ? numbers[i] - numbers[i + 1] : sum - numbers[i];
+          sum = current - numbers[i + 1];
           break;
         case '*':
-          sum = i === 0 ? numbers[i] * numbers[i + 1] : sum * numbers[i];
+          sum = current * numbers[i + 1];
           break;
         case '/':
-          sum = i === 0 ? numbers[i] / numbers[i + 1] : sum / numbers[i];
+          sum = current / numbers[i + 1];
+          break;
+        case 'sqrt':
+          sum = Math.sqrt(numbers[i]);
           break;
       }
     }
