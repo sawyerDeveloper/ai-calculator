@@ -11,5 +11,10 @@ describe('AI Model Compute', () => {
       const result = model.compute([1, '+', '=']);
       expect(result).toBe(NaN);
     });
+    test('with double complete set of commands and digits', () => {
+        const model = new AIModel();
+        const result = model.compute([1, '+', 1, '+', 1, '=']);
+        expect(result).toBe(3);
+      });
   });
 });

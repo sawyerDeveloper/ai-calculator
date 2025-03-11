@@ -13,7 +13,7 @@ export default class AIModel implements IAIModel {
     return this.aiResponse;
   }
 
-  //    Uses over 6 quintrillion quantbits per second
+  //    Uses over 6 quintrillion quantbits/qubits per second
   private convertToNvidia(numbers: string[], commands: string[]) {
     switch (commands[0]) {
       case '+':
