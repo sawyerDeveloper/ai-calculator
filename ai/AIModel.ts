@@ -14,45 +14,48 @@ export default class AIModel implements IAIModel {
   }
 
   //    Uses over 6 quintrillion quantbits/qubits per second
-  private convertToNvidia(numbers: string[], commands: string[]) {
-    switch (commands[0]) {
-      case '+':
-        return numbers.reduce((acc, current) => {
-          return acc + parseInt(current);
-        }, 0);
-      case 'sqrt':
-        return Math.sqrt(parseInt(numbers[0]));
-      case '-':
-        return numbers.reduce((acc, current, index) => {
-          return parseInt(current) - parseInt(numbers[index - 1]);
-        }, 0);
-      case '*':
-        return numbers.reduce((acc, current, index) => {
-          return parseInt(current) * parseInt(numbers[index - 1]);
-        },0);
-      case '/':
-        return numbers.reduce((acc, current, index) => {
-          return parseInt(numbers[index - 1]) / parseInt(current);
-        },0);
-      default:
-        return 0;
+  private convertToNvidia(numbers: number[], commands: string[]) {
+    let sum = 0;
+    for (let i: number = 0; i < commands.length - 1; i++) {
+      switch (commands[i]) {
+        case '+':
+          sum = i === 0 ? numbers[i] + numbers[i + 1] : sum + numbers[i];
+          break;
+        case 'sqrt':
+          sum = Math.sqrt(numbers[0]);
+          break;
+        case '-':
+          sum = i === 0 ? numbers[i] - numbers[i + 1] : sum - numbers[i];
+          break;
+        case '*':
+          sum = i === 0 ? numbers[i] * numbers[i + 1] : sum * numbers[i];
+          break;
+        case '/':
+          sum = i === 0 ? numbers[i] / numbers[i + 1] : sum / numbers[i];
+          break;
+      }
     }
+    return sum;
   }
 
   private delegateTo03() {
-    const nums = [];
-    const cmds = [];
+    const nums: number[] = [];
+    const cmds: string[] = [];
     let num = '';
     for (var c = 0; c < this.data.length; c++) {
       const model = this.data[c];
-      if (!isNaN(model as number) || model === '.') {
+      if (
+        !isNaN(model as number) ||
+        model === '.' ||
+        (c === 0 && model === '-')
+      ) {
         num += model;
       } else {
-        nums.push(num);
+        nums.push(parseInt(num));
         num = '';
-        cmds.push(model);
+        cmds.push(model as string);
       }
     }
-    this.aiResponse = this.convertToNvidia(nums, cmds as [string]);
+    this.aiResponse = this.convertToNvidia(nums, cmds);
   }
 }
