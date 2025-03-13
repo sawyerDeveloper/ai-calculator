@@ -1,9 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  Pressable,
-  ColorValue,
-} from 'react-native';
+import { StyleSheet, Text, Pressable, ColorValue } from 'react-native';
 
 interface CalcButtonProps {
   value: number | string;
@@ -20,10 +15,15 @@ export function CalcButton({
 }: CalcButtonProps) {
   return (
     <Pressable
+      accessibilityLabel='Calculator Button'
       onPress={() => action(value)}
       style={[styles.container, { backgroundColor }]}
     >
-      <Text style={[styles.label, {fontSize: isNaN(value as number) ? 30 : 25}]}>{label}</Text>
+      <Text
+        style={[styles.label, { fontSize: isNaN(value as number) ? 30 : 25 }]}
+      >
+        {label}
+      </Text>
     </Pressable>
   );
 }
@@ -37,9 +37,9 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     borderWidth: 1,
     cursor: 'pointer',
-    fontSize: 20
+    fontSize: 20,
   },
   label: {
-    fontWeight: '600' 
-  }
+    fontWeight: '600',
+  },
 });

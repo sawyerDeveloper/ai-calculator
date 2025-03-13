@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`CalcButton renders correctly 1`] = `
 <View
+  accessibilityLabel="Calculator Button"
   accessibilityState={
     {
       "busy": undefined,
