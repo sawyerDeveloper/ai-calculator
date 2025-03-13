@@ -1,9 +1,10 @@
-import renderer from 'react-test-renderer';
+import { render } from '@testing-library/react-native';
 import CalcControls from './CalcControls';
 
 it('renders correctly', () => {
-  const tree = renderer
-    .create(<CalcControls pressCalcButton={() => {}}/>)
-    .toJSON();
+  const tree = render(
+    <CalcControls pressCalcButton={() => {}} />
+  ).toJSON();
+
   expect(tree).toMatchSnapshot();
 });
