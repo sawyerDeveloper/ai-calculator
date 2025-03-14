@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react-native';
-import { CalcButton } from './CalcButton';
+import { CalcButton } from '../CalcButton';
 
 describe('CalcButton', () => {
   it('renders correctly', () => {

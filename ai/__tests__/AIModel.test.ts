@@ -1,4 +1,4 @@
-import AIModel from './AIModel';
+import AIModel from '../AIModel';
 describe('AI Model Compute', () => {
   describe('Addition', () => {
     test('with single complete set of commands and digits', () => {
