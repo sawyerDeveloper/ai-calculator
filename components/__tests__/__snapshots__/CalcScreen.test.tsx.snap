@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CalcScreen renders correctly 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "white",
+      "borderColor": "black",
+      "borderWidth": 1.5,
+      "height": 60,
+      "justifyContent": "center",
+      "paddingLeft": 10,
+      "width": "100%",
+    }
+  }
+>
+  <Text
+    style={
+      {
+        "fontSize": 30,
+      }
+    }
+  >
+    1
+    +
+    1
+    =
+    2
+  </Text>
+</View>
+`;

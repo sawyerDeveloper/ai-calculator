@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useState } from 'react';
 import { CalcScreen } from './CalcScreen';
 import AIModel from '../ai/AIModel';
