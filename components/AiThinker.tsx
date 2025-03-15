@@ -27,7 +27,7 @@ export function AiThinker({ aiModel, aiCallback }: AiThinkerProps) {
   }, [left]);
 
   return (
-    <View style={styles.container}>
+    <View testID='AI Thinker' style={styles.container}>
       <Animated.View style={[styles.brain, animStyle]}>
         <FontAwesome5 name='brain' size={54} color='black' />
       </Animated.View>
