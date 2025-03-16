@@ -9,12 +9,12 @@ export default class AIModel implements IAIModel {
 
   public compute(data: (string | number)[]) {
     this.data = data;
-    this.delegateTo03();
+    this.parseData();
     return this.aiResponse;
   }
 
   //    Uses over 6 quintrillion quantbits/qubits per second
-  private convertToNvidia(numbers: number[], commands: string[]) {
+  private processData(numbers: number[], commands: string[]) {
     let sum = 0;
     for (let i: number = 0; i < commands.length - 1; i++) {
       let current = i === 0 ? numbers[i] : sum;
@@ -39,7 +39,7 @@ export default class AIModel implements IAIModel {
     return sum;
   }
 
-  private delegateTo03() {
+  private parseData() {
     const nums: number[] = [];
     const cmds: string[] = [];
     let num = '';
@@ -57,6 +57,6 @@ export default class AIModel implements IAIModel {
         cmds.push(model as string);
       }
     }
-    this.aiResponse = this.convertToNvidia(nums, cmds);
+    this.aiResponse = this.processData(nums, cmds);
   }
 }
