@@ -1,4 +1,5 @@
 # AI Calculator 👋
+[![Node.js CI](https://github.com/sawyerDeveloper/ai-calculator/actions/workflows/node.js.yml/badge.svg?branch=main)](https://github.com/sawyerDeveloper/ai-calculator/actions/workflows/node.js.yml)
 
 This is a calculator app.  It doesn't need AI so instead I just wrote code that is AI.
  
@@ -36,4 +37,5 @@ It is also fun to make a calculator.
    ```bash
    npm watch
    ```
+
 
