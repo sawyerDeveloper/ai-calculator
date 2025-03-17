@@ -4,24 +4,32 @@ This is a calculator app.  It doesn't need AI so instead I just wrote code that 
  
 I created a data structure/algorithm based on the concept of a MODEM(Modulate/Demodulate).
 
-The complex data stream is stored and processed and then broken down into a simpler datatype after muxing like the foundational technology in LLM's and compilers.
+The complex data stream is stored and processed and then broken down into a simpler datatype after muxing like the foundational technology in LLM's and compilers.  Every computer has an embedded LLM called a Math Coprocessor and I am leveraging that to chat with.
 
-It is also fun to make a calculator.
+It is also fun to make a calculator. 
+
+It has a backend using the latest Expo API Routes and connects to a MongoDB database for storing calculations.
 
 ## Get started
 
 1. Install dependencies
 
+
    ```bash
    npm install
    ```
+2. Database Setup
 
-2. Start the app
+   Get setup with Atlas (MongoDB) https://www.mongodb.com/cloud/atlas/register free cluster.
+   Fill out the .env.example with your connection string and rename it to ```.env```.
+   Create a database called 'calculator' and a collection called 'calculations'.
+
+3. Start the app
 
    ```bash
     npx expo start
    ```
-3. Choose the platform
+4. Choose the platform
 
    Press w for web
 
@@ -36,4 +44,3 @@ It is also fun to make a calculator.
    ```bash
    npm watch
    ```
-
