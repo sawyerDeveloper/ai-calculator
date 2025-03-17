@@ -5,7 +5,7 @@ This is a calculator app.  It doesn't need AI so instead I just wrote code that 
  
 I created a data structure/algorithm based on the concept of a MODEM(Modulate/Demodulate).
 
-The complex data stream is stored and processed and then broken down into a simpler datatype after muxing like the foundational technology in LLM's and compilers.  Every computer has an embedded LLM called a Math Coprocessor and I am leveraging that to chat with.
+The complex data stream is stored and processed and then broken down into a simpler datatype after muxing like the foundational technology in LLM's and compilers.  Every computer has an embedded LLM called a Math Coprocessor that I am leveraging for results.
 
 It is also fun to make a calculator. 
 
