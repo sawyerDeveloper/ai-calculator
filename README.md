@@ -1,6 +1,7 @@
 # AI Calculator 👋
+[![Node.js CI](https://github.com/sawyerDeveloper/ai-calculator/actions/workflows/node.js.yml/badge.svg?branch=main)](https://github.com/sawyerDeveloper/ai-calculator/actions/workflows/node.js.yml)
 
-This is a calculator app.  It doesn't need AI so instead I just wrote code that looks like AI and operates like AI.
+This is a calculator app.  It doesn't need AI so instead I just wrote code that is AI.
  
 I created a data structure/algorithm based on the concept of a MODEM(Modulate/Demodulate).
 
