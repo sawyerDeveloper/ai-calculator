@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useEffect, useState } from 'react';
 import { CalcScreen } from './CalcScreen';
 import AIModel from '../ai/AIModel';
@@ -11,23 +11,25 @@ export function Calculator() {
   const [popularMaths, setPopularMaths] = useState(undefined)
   const [aiModel] = useState(new AIModel());
 
-  async function fetchHello() {
+  async function fetchMaths() {
     const response = await fetch('/api/analytics');
     const data = await response.json();
-    setPopularMaths(data.maths)
+    console.log(data)
+    setPopularMaths(data)
   }
 
   useEffect(() => {
-    fetchHello()
-  })
+    !popularMaths&&
+    fetchMaths()
+  }, [ fetchMaths])
 
-  async function postData(data){
+  async function postData(data : (string | number)[]){
     const response = await fetch('/api/analytics', {
       method: "POST",
       body: JSON.stringify(data),
     });
     const newData = await response.json();
-    alert('Hello ' + newData);
+    setPopularMaths(newData)
   }
 
   const addDigit = (digit: number) => {
