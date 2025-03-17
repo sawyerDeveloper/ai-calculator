@@ -1,4 +1,4 @@
-import { MongoClient, ObjectId, ServerApiVersion } from 'mongodb';
+import { MongoClient, ServerApiVersion } from 'mongodb';
 const client = new MongoClient(process.env.ATLAS_URI || '', {
   serverApi: {
     version: ServerApiVersion.v1,
@@ -6,27 +6,33 @@ const client = new MongoClient(process.env.ATLAS_URI || '', {
     deprecationErrors: true,
   },
 });
-const maths = [
-  [1, '+', 1, '=', 2],
-  [2, '+', 2, '=', 4],
-  [2, '+', 2, '=', 4],
-  [1, '+', 3, '=', 4],
-  [2, '-', 2, '=', 0],
-  [2, '+', 2, '=', 4],
-];
+const db = 'calculator';
+const collection = 'calculations';
+
 export async function GET(request: Request) {
   const maths = [];
   await client.connect();
-  const database = client.db('calculator');
-  const mathsCollection = database.collection('calculations');
+  const database = client.db(db);
+  const mathsCollection = database.collection(collection);
   const allMaths = await mathsCollection.find({});
   for await (const calculation of allMaths) {
-    maths.push(calculation.math);
+    maths.push(calculation.data);
   }
+  client.close();
   return Response.json(maths);
 }
 
 export async function POST(request: Request) {
   const body = await request.json();
-  return Response.json(body);
+  const maths = [];
+  await client.connect();
+  const database = client.db(db);
+  const mathsCollection = database.collection(collection);
+  await mathsCollection.insertOne(body);
+  const allMaths = await mathsCollection.find({});
+  for await (const calculation of allMaths) {
+    maths.push(calculation.math);
+  }
+  client.close();
+  return Response.json(maths);
 }

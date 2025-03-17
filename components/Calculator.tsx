@@ -6,31 +6,39 @@ import CalcControls from './CalcControls';
 import PopularMaths from './PopularMaths';
 
 export function Calculator() {
-  const [currentCommand, setCurrentCommand] = useState<(string | number)[]>([0]);
+  const [currentCommand, setCurrentCommand] = useState<(string | number)[]>([
+    0,
+  ]);
   const [loading, setLoading] = useState(false);
-  const [popularMaths, setPopularMaths] = useState(undefined)
+  const [popularMaths, setPopularMaths] = useState(undefined);
   const [aiModel] = useState(new AIModel());
 
   async function fetchMaths() {
     const response = await fetch('/api/analytics');
     const data = await response.json();
-    console.log(data)
-    setPopularMaths(data)
+    setPopularMaths(data);
   }
 
   useEffect(() => {
-    !popularMaths&&
-    fetchMaths()
-  }, [ fetchMaths])
+    !popularMaths && fetchMaths();
+  }, []);
 
-  async function postData(data : (string | number)[]){
+  async function postData(data: string) {
     const response = await fetch('/api/analytics', {
-      method: "POST",
-      body: JSON.stringify(data),
+      method: 'POST',
+      body: JSON.stringify({ data }),
     });
     const newData = await response.json();
-    setPopularMaths(newData)
+    setPopularMaths(newData);
   }
+
+  const convertToStorage = (data: (string | number)[]): string => {
+    return data.reduce(
+      (prev: string, current: string | number) =>
+        prev.concat(current as string),
+      ''
+    );
+  };
 
   const addDigit = (digit: number) => {
     //  Don't add zeros
@@ -51,9 +59,8 @@ export function Calculator() {
       case '=':
         setLoading(true);
         currentCommand.push(command);
-        const result = aiModel.compute(currentCommand);
-        currentCommand.push(result);
-        postData(currentCommand)
+        currentCommand.push(aiModel.compute(currentCommand));
+        postData(convertToStorage(currentCommand));
         setCurrentCommand([...currentCommand]);
         break;
       case 'AC':
@@ -112,5 +119,5 @@ const styles = StyleSheet.create({
     padding: 20,
     width: '100%',
     maxWidth: 500,
-  }
+  },
 });
