@@ -9,7 +9,7 @@ The complex data stream is stored and processed and then broken down into a simp
 
 It is also fun to make a calculator. 
 
-It has a backend using the latest [Expo API Routes https://docs.expo.dev/router/reference/api-routes/ and connects to a MongoDB database for storing calculations.
+It has a backend using the latest Expo API Routes https://docs.expo.dev/router/reference/api-routes/ and connects to a MongoDB database for storing calculations.
 
 ## Get started
 
