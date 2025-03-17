@@ -9,7 +9,7 @@ The complex data stream is stored and processed and then broken down into a simp
 
 It is also fun to make a calculator. 
 
-It has a backend using the latest Expo API Routes and connects to a MongoDB database for storing calculations.
+It has a backend using the latest [Expo API Routes https://docs.expo.dev/router/reference/api-routes/ and connects to a MongoDB database for storing calculations.
 
 ## Get started
 
@@ -24,7 +24,7 @@ It has a backend using the latest Expo API Routes and connects to a MongoDB data
    Get setup with Atlas (MongoDB) https://www.mongodb.com/cloud/atlas/register free cluster.
 
    Fill out the .env.example with your connection string and rename it to ```.env```.
-   
+
    Create a database called 'calculator' and a collection called 'calculations'.
 
 3. Start the app
