@@ -22,7 +22,9 @@ It has a backend using the latest Expo API Routes and connects to a MongoDB data
 2. Database Setup
 
    Get setup with Atlas (MongoDB) https://www.mongodb.com/cloud/atlas/register free cluster.
+
    Fill out the .env.example with your connection string and rename it to ```.env```.
+   
    Create a database called 'calculator' and a collection called 'calculations'.
 
 3. Start the app
