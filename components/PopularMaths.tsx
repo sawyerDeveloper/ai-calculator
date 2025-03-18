@@ -3,10 +3,14 @@ import { ScrollView, StyleSheet, Text, View } from 'react-native';
 export default function PopularMaths({ popularMaths = [] }) {
   return (
     <View style={styles.container}>
-      <Text>Popular Maths</Text>
+      <Text style={styles.headerTitle}>Popular Maths</Text>
       <ScrollView style={styles.scroller}>
         {popularMaths.map((math: string, index: number) => {
-          return <Text key={math + index}>{math}</Text>;
+          return (
+            <Text style={styles.mathLabel} key={math + index}>
+              {math}
+            </Text>
+          );
         })}
       </ScrollView>
     </View>
@@ -15,11 +19,20 @@ export default function PopularMaths({ popularMaths = [] }) {
 
 const styles = StyleSheet.create({
   container: {
-    paddingBottom: 5,
+    paddingTop: 5,
   },
   scroller: {
-    maxHeight: 40,
+    maxHeight: 140,
     width: 100,
     backgroundColor: 'lightgrey',
   },
+  mathLabel: {
+    paddingTop: 2,
+    textAlign: 'center',
+  },
+  headerTitle: {
+    fontStyle: 'italic',
+    textAlign: 'center',
+    fontWeight: 700
+  }
 });

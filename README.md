@@ -45,5 +45,5 @@ It has a backend using the latest Expo API Routes https://docs.expo.dev/router/r
 ## Run Tests
 
    ```bash
-   npm watch
+   npm run watch
    ```

@@ -65,6 +65,7 @@ export function Calculator() {
         break;
       case 'AC':
         setCurrentCommand([0]);
+        setLoading(false)
         break;
       case 'C':
         //  Just remove the last digit or command
@@ -103,9 +104,9 @@ export function Calculator() {
 
   return (
     <View style={styles.container}>
-      {popularMaths && <PopularMaths popularMaths={popularMaths} />}
       <CalcScreen loading={loading} value={currentCommand} />
       <CalcControls pressCalcButton={pressCalcButton} />
+      {popularMaths && <PopularMaths popularMaths={popularMaths} />}
     </View>
   );
 }

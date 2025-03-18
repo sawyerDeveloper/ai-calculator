@@ -37,8 +37,8 @@ describe('AI Model Compute', () => {
   describe('Multiplication', () => {
     test('with single complete set of commands and digits', () => {
       const model = new AIModel();
-      const result = model.compute([1, '*', 1, '=']);
-      expect(result).toBe(1);
+      const result = model.compute([3, 'x', 3, '=']);
+      expect(result).toBe(9);
     });
   });
   describe('Division', () => {
@@ -70,7 +70,7 @@ describe('AI Model Compute', () => {
       });
     test('with complete set of all mixed commands and digits', () => {
       const model = new AIModel();
-      const result = model.compute(['-', '1', '+', 3, '*', 3, '/', 2, '-', 1, '=']);
+      const result = model.compute(['-', '1', '+', 3, 'x', 3, '/', 2, '-', 1, '=']);
       expect(result).toBe(2);
     });
   });
