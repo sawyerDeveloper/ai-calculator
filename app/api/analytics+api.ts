@@ -18,6 +18,7 @@ export async function GET(request: Request) {
   for await (const calculation of allMaths) {
     maths.push(calculation.data);
   }
+  maths.reverse();
   client.close();
   return Response.json(maths);
 }
@@ -33,6 +34,7 @@ export async function POST(request: Request) {
   for await (const calculation of allMaths) {
     maths.push(calculation.data);
   }
+  maths.reverse();
   client.close();
   return Response.json(maths);
 }

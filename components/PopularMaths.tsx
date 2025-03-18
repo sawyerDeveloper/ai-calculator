@@ -15,10 +15,10 @@ export default function PopularMaths({ popularMaths = [] }) {
 
 const styles = StyleSheet.create({
   container: {
-    paddingBottom: 5,
+    paddingTop: 5,
   },
   scroller: {
-    maxHeight: 40,
+    maxHeight: 140,
     width: 100,
     backgroundColor: 'lightgrey',
   },
