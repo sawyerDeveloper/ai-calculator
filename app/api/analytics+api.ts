@@ -20,8 +20,7 @@ export async function GET(request: Request) {
   }
   maths.reverse();
   client.close();
-  const str = process.env.ATLAS_URI
-  return Response.json({'boop': 'boop'});
+  return Response.json(maths);
 }
 
 export async function POST(request: Request) {
