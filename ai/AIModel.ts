@@ -25,7 +25,8 @@ export default class AIModel implements IAIModel {
         case '-':
           sum = current - numbers[i + 1];
           break;
-        case '*':
+        case 'x':
+          console.log(sum, current, numbers[i + 1])
           sum = current * numbers[i + 1];
           break;
         case '/':
