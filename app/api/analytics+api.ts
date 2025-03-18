@@ -31,7 +31,7 @@ export async function POST(request: Request) {
   await mathsCollection.insertOne(body);
   const allMaths = await mathsCollection.find({});
   for await (const calculation of allMaths) {
-    maths.push(calculation.math);
+    maths.push(calculation.data);
   }
   client.close();
   return Response.json(maths);
