@@ -1,8 +1,10 @@
 # AI Calculator 👋
 [![Node.js CI](https://github.com/sawyerDeveloper/ai-calculator/actions/workflows/node.js.yml/badge.svg?branch=main)](https://github.com/sawyerDeveloper/ai-calculator/actions/workflows/node.js.yml)
 
-This is a calculator app.  It doesn't need AI so instead I just wrote code that is AI.
- 
+## Philosophy
+This is a calculator app.  LinkedIn is saying that I should use AI to disrupt the Calculator market and remove human jobs.  I disagree so I wrote a calculator that shows everyone how LLM's actually work and that they are not magic.  Mine works better then most that cost money because I am using a deterministic model instead of a probabalistic model like modern LLM's.  This  model was ethically sourced unlike most modern LLMs and services and this is free.
+
+## Architecture
 I created a data structure/algorithm based on the concept of a MODEM(Modulate/Demodulate).
 
 The complex data stream is stored and processed and then broken down into a simpler datatype after muxing like the foundational technology in LLM's and compilers.  Every computer has an embedded LLM called a Math Coprocessor that I am leveraging for results.
