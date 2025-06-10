@@ -2,7 +2,7 @@
 [![Node.js CI](https://github.com/sawyerDeveloper/ai-calculator/actions/workflows/node.js.yml/badge.svg?branch=main)](https://github.com/sawyerDeveloper/ai-calculator/actions/workflows/node.js.yml)
 
 ## Philosophy
-This is a calculator app.  I wrote a calculator that shows everyone how LLM's actually work to do my part to reduce magical thinking.  Mine works better then most that cost money because I am using a deterministic model instead of a probabalistic model.  This model was ethically sourced unlike most modern LLMs and services and this is free.
+This is a calculator app.  I wrote a calculator that shows everyone how LLM's actually work to do my part to reduce magical thinking.  Mine works better then most that cost money because I am using a deterministic model instead of a probabilistic model.  This model was ethically sourced unlike most modern LLMs and services and this is free.
 
 ## Architecture
 I created a data structure/algorithm based on the concept of a MODEM(Modulate/Demodulate).
